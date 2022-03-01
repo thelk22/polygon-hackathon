@@ -1,0 +1,19 @@
+{
+  "name": "polygon-hackathon",
+  "version": "1.0.0",
+  "description": "Node project for the Polygon x Arweave Hackathon",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thelk22/polygon-hackathon.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thelk22/polygon-hackathon/issues"
+  },
+  "homepage": "https://github.com/thelk22/polygon-hackathon#readme"
+}
