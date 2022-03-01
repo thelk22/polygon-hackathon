@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
-import ConnectMetaMask from './connectMetaMask';
+import React from "react";
+import "./App.css";
+import ConnectMetaMask from "./components/ConnectMetaMask.js";
+import UploadFile from "./components/UploadFile.js";
 
 function App() {
   return (
     <div className="App">
-      <ConnectMetaMask/>
+      <ConnectMetaMask />
+      <UploadFile />
     </div>
   );
 }
