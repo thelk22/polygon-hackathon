@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import {ethers} from 'ethers'
+import { WebBundlr } from "@bundlr-network/client";
+
 import './connectMetaMask.css'
 import './App.css'
 
@@ -29,6 +31,30 @@ const ConnectMetaMask = () => {
 			console.log('Need to install MetaMask');
 			setErrorMessage('Please install MetaMask browser extension to interact');
 		}
+	}
+
+	const uploadHandler = () => {
+
+		const initialiseBundlr = async () => {
+			currencyName = "matic"
+			const bundlr = new WebBundlr("https://node1.bundlr.network", "matic", window.ethereum);
+			await bundlr.ready();
+			return bundlr; // done!
+		}
+
+		const bundlr = initialiseBundlr();
+
+		const data = "string";
+		const tags = [{name: "Content-Type", value: "text/plain"}];
+		const transaction = bundlr.createTransaction(data, { tags });
+
+		transaction.sign();
+		transaction.upload();
+
+		// after uploading 
+		const id = (transaction.upload).data.id;
+
+		alert(id);
 	}
 
 	// update account, will cause component re-render
@@ -66,6 +92,7 @@ const ConnectMetaMask = () => {
 			</div>
 			<div className='balanceDisplay'>
 				<h3>Balance: {userBalance} MATIC </h3>
+			<button class = "button" onClick={uploadHandler}> Upload to Bundlr</button>
 			</div>
 			{errorMessage}
 		</div>
